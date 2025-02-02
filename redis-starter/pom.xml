@@ -17,7 +17,11 @@
     </dependency>
     <dependency>
       <groupId>github.benslabbert.vertx-dagger-commons</groupId>
-      <artifactId>commons</artifactId>
+      <artifactId>config</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>github.benslabbert.vertx-dagger-commons</groupId>
+      <artifactId>logging</artifactId>
     </dependency>
     <dependency>
       <groupId>io.vertx</groupId>

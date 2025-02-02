@@ -16,6 +16,10 @@
       <artifactId>dagger</artifactId>
     </dependency>
     <dependency>
+      <groupId>com.zaxxer</groupId>
+      <artifactId>HikariCP</artifactId>
+    </dependency>
+    <dependency>
       <groupId>github.benslabbert.vertx-dagger-commons</groupId>
       <artifactId>commons</artifactId>
     </dependency>

@@ -33,21 +33,23 @@
 
   <properties>
     <!--deps-->
-    <vertx-dagger-commons.version>1.76.0</vertx-dagger-commons.version>
+    <vertx-dagger-commons.version>1.78.0</vertx-dagger-commons.version>
     <vertx-dagger-app-api.version>1.74.0</vertx-dagger-app-api.version>
   </properties>
 
   <dependencyManagement>
     <dependencies>
       <dependency>
+        <groupId>github.benslabbert.vertx-dagger-commons</groupId>
+        <artifactId>bom</artifactId>
+        <version>${vertx-dagger-commons.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+      <dependency>
         <groupId>github.benslabbert.vertx-dagger-app-api</groupId>
         <artifactId>iam-auth-api</artifactId>
         <version>${vertx-dagger-app-api.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>github.benslabbert.vertx-dagger-commons</groupId>
-        <artifactId>commons</artifactId>
-        <version>${vertx-dagger-commons.version}</version>
       </dependency>
     </dependencies>
   </dependencyManagement>
