@@ -21,6 +21,7 @@
     <module>reactive-db-pool-starter</module>
     <module>jdbc-pool-starter</module>
     <module>iam-auth-client-starter</module>
+    <module>bom</module>
   </modules>
 
   <distributionManagement>
