@@ -20,6 +20,8 @@ jobs:
           version: "24"
         - distribution: "adopt"
           version: "24"
+        - distribution: "semeru"
+          version: "24"
     steps:
     - uses: "actions/checkout@v4"
     - name: "Set up JDK ${{ matrix.java.version }}"
