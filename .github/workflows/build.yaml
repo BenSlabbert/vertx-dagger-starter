@@ -17,16 +17,14 @@ jobs:
           - { distribution: "zulu", version: "24" }
           - { distribution: "temurin", version: "24" }
           - { distribution: "adopt", version: "24" }
-        architecture: [amd64, arm64]
     steps:
     - uses: "actions/checkout@v4"
-    - name: "Set up JDK ${{ matrix.java.version }} on ${{ matrix.architecture }}"
+    - name: "Set up JDK ${{ matrix.java.version }}"
       uses: "actions/setup-java@v4"
       with:
         distribution: "${{ matrix.java.distribution }}"
         java-version: "${{ matrix.java.version }}"
         java-package: "jdk"
-        architecture: "${{ matrix.architecture }}"
         cache: "maven"
     - name: "Set up Maven"
       uses: "stCarolas/setup-maven@v5"
