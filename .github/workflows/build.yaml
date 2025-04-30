@@ -19,13 +19,17 @@ jobs:
       matrix:
         java:
         - distribution: "zulu"
-          version: "24"
+          version: "21"
         - distribution: "temurin"
-          version: "24"
+          version: "21"
         - distribution: "adopt"
-          version: "24"
+          version: "21"
     steps:
     - uses: "actions/checkout@v4"
+    - name: "Initialize CodeQL"
+      uses: "github/codeql-action/init@v3"
+      with:
+        languages: "${{ matrix.language }}"
     - name: "Set up JDK ${{ matrix.java.version }}"
       uses: "actions/setup-java@v4"
       with:
@@ -38,5 +42,11 @@ jobs:
       with:
         maven-version: "3.9.9"
     - run: "git fetch --prune --unshallow --tags"
-    - run: "make 'M=mvn -s settings.xml -T 1C' fmtCheck"
-    - run: "make 'M=mvn -s settings.xml -T 1C' build"
+    - run: "mvn -s settings.xml clean spotless:check install"
+    - name: "Perform CodeQL Analysis"
+      uses: "github/codeql-action/analyze@v3"
+    - name: "Submit Dependency Snapshot"
+      uses: "advanced-security/maven-dependency-submission-action@v4"
+      with:
+        token: "${{ secrets.GH_TOKEN }}"
+        maven-args: "-s settings.xml"
