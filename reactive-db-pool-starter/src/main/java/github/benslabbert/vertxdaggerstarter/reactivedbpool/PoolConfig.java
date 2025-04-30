@@ -35,7 +35,8 @@ final class PoolConfig implements AutoCloseable {
     Objects.requireNonNull(postgres);
     PgConnectOptions connectOptions =
         new PgConnectOptions()
-            .setConnectTimeout(5)
+            .setReconnectAttempts(3)
+            .setReconnectInterval(1_000L)
             .setPort(postgres.port())
             .setHost(postgres.host())
             .setDatabase(postgres.database())
