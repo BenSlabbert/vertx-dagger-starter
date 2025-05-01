@@ -8,7 +8,7 @@ import com.zaxxer.hikari.HikariDataSource;
 import dagger.Module;
 import dagger.Provides;
 import github.benslabbert.vertxdaggercommons.config.Config;
-import io.vertx.core.impl.NoStackTraceException;
+import io.vertx.core.VertxException;
 import java.time.Duration;
 import java.util.Objects;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
@@ -41,7 +41,7 @@ final class BlockingJdbcPoolConfig implements AutoCloseable {
       log.info("test connection: {}", s);
     } catch (Exception e) {
       log.error("failed to get connection", e);
-      throw new NoStackTraceException(e);
+      throw VertxException.noStackTrace(e);
     }
 
     return dataSource;
