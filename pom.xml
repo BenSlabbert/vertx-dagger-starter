@@ -5,7 +5,7 @@
   <parent>
     <groupId>github.benslabbert</groupId>
     <artifactId>vertx-dagger-bom</artifactId>
-    <version>3.7.0</version>
+    <version>3.8.0</version>
   </parent>
 
   <groupId>github.benslabbert.vertx-dagger-starter</groupId>
@@ -34,7 +34,7 @@
 
   <properties>
     <!--deps-->
-    <vertx-dagger-commons.version>1.116.0</vertx-dagger-commons.version>
+    <vertx-dagger-commons.version>1.119.0</vertx-dagger-commons.version>
     <vertx-dagger-app-api.version>1.115.0</vertx-dagger-app-api.version>
   </properties>
 
@@ -54,99 +54,5 @@
       </dependency>
     </dependencies>
   </dependencyManagement>
-
-  <build>
-    <plugins>
-      <plugin>
-        <groupId>com.diffplug.spotless</groupId>
-        <artifactId>spotless-maven-plugin</artifactId>
-        <configuration>
-          <yaml>
-            <includes>
-              <include>**/*.yaml</include>
-              <include>**/*.yml</include>
-            </includes>
-            <jackson />
-          </yaml>
-          <pom>
-            <includes>
-              <include>pom.xml</include>
-            </includes>
-            <sortPom>
-              <encoding>UTF-8</encoding>
-              <lineSeparator>${line.separator}</lineSeparator>
-              <expandEmptyElements>false</expandEmptyElements>
-              <spaceBeforeCloseEmptyElement>true</spaceBeforeCloseEmptyElement>
-              <keepBlankLines>true</keepBlankLines>
-              <nrOfIndentSpace>2</nrOfIndentSpace>
-              <predefinedSortOrder>recommended_2008_06</predefinedSortOrder>
-              <sortDependencies>scope,groupId,artifactId</sortDependencies>
-              <sortPlugins>groupId,artifactId</sortPlugins>
-            </sortPom>
-          </pom>
-          <markdown>
-            <includes>
-              <include>**/*.md</include>
-            </includes>
-            <flexmark />
-          </markdown>
-          <java>
-            <includes>
-              <include>src/main/**/*.java</include>
-              <include>src/test/**/*.java</include>
-              <include>target/generated-sources/**/*.java</include>
-            </includes>
-            <googleJavaFormat>
-              <style>GOOGLE</style>
-              <reflowLongStrings>true</reflowLongStrings>
-            </googleJavaFormat>
-            <formatAnnotations />
-            <licenseHeader>
-              <content>/* Licensed under Apache-2.0 $YEAR. */</content>
-              <delimiter>package</delimiter>
-            </licenseHeader>
-          </java>
-        </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <configuration>
-          <source>${java.version}</source>
-          <target>${java.version}</target>
-          <encoding>${project.build.sourceEncoding}</encoding>
-        </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-install-plugin</artifactId>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-jar-plugin</artifactId>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-source-plugin</artifactId>
-        <executions>
-          <execution>
-            <id>attach-sources</id>
-            <goals>
-              <goal>jar-no-fork</goal>
-            </goals>
-            <phase>verify</phase>
-          </execution>
-        </executions>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-surefire-plugin</artifactId>
-      </plugin>
-      <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>flatten-maven-plugin</artifactId>
-      </plugin>
-    </plugins>
-  </build>
 
 </project>
