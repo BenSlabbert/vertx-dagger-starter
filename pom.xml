@@ -34,8 +34,8 @@
 
   <properties>
     <!--deps-->
-    <vertx-dagger-commons.version>1.159.0</vertx-dagger-commons.version>
-    <vertx-dagger-app-api.version>1.142.0</vertx-dagger-app-api.version>
+    <vertx-dagger-commons.version>1.160.0</vertx-dagger-commons.version>
+    <vertx-dagger-app-api.version>1.143.0</vertx-dagger-app-api.version>
   </properties>
 
   <dependencyManagement>
